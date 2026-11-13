@@ -14,13 +14,13 @@ eventos = {
             {"nome": "Campeonato Municipal de Futebol", "nivel":
                 "Iniciante", "vagas": 30, "data": date(2026, 10, 20), "cancelado": True},
             {"nome": "Copa São Paulo de Futebol Amador", "nivel":
-                "Intermediário", "vagas": 25, "data": date(2026, 12, 15), "cancelado": False},
+                "Intermediário", "vagas": 0, "data": date(2026, 12, 15), "cancelado": False},
             {"nome": "Torneio Metropolitano de Futebol", "nivel":
                 "Avançado", "vagas": 20, "data": date(2027, 2, 10), "cancelado": False}
         ],
         "basquete": [
             {"nome": "Campeonato Municipal de Basquete", "nivel":
-                "Iniciante", "vagas": 25, "data": date(2026, 11, 25), "cancelado": False},
+                "Iniciante", "vagas": 1, "data": date(2026, 11, 25), "cancelado": False},
             {"nome": "Copa Paulista de Basquete", "nivel":
                 "Intermediário", "vagas": 20, "data": date(2026, 9, 15), "cancelado": False},
             {"nome": "Torneio Metropolitano de Basquete", "nivel":
@@ -28,7 +28,7 @@ eventos = {
         ],
         "tenis": [
             {"nome": "Torneio Municipal de Tênis", "nivel":
-                "Iniciante", "vagas": 20, "data": date(2027, 1, 12), "cancelado": True},
+                "Iniciante", "vagas": 0, "data": date(2027, 1, 12), "cancelado": True},
             {"nome": "Copa Paulista de Tênis", "nivel":
                 "Intermediário", "vagas": 15, "data": date(2026, 10, 5), "cancelado": False},
             {"nome": "Circuito Metropolitano de Tênis",
@@ -38,7 +38,7 @@ eventos = {
             {"nome": "Campeonato Municipal de Vôlei",
              "nivel": "Iniciante", "vagas": 30, "data": date(2026, 12, 5), "cancelado": True},
             {"nome": "Copa Paulista de Vôlei", "nivel":
-                "Intermediário", "vagas": 25, "data": date(2026, 8, 20), "cancelado": True},
+                "Intermediário", "vagas": 3, "data": date(2026, 8, 20), "cancelado": True},
             {"nome": "Torneio Metropolitano de Vôlei", "nivel":
                 "Avançado", "vagas": 20, "data": date(2027, 5, 10), "cancelado": False}
         ]
@@ -459,7 +459,7 @@ def main():
         print("1. Cadastrar participante")
         print("2. Explorar eventos")
         print("3. Minhas inscrições")
-        print("4. Consultar participantes")
+        print("4. Consultar Usuário")
         print("0. Sair")
 
         opcao = input("\nEscolha uma opção: ").strip()
