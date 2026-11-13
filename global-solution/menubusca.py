@@ -144,29 +144,40 @@ usuario_atual = None
 def selecionar_usuario():
     global usuario_atual
 
+    # Limpa o usuário atual antes de iniciar uma nova seleção.
+    usuario_atual = None
+
     print("\n--- SELECIONAR USUÁRIO ---\n")
 
+    # Verifica se existem usuários cadastrados.
     if not inscricoes:
         print("Nenhum usuário cadastrado.")
         return
 
+    # Exibe o ID e o nome de todos os usuários cadastrados.
     for usuario in inscricoes:
         print(f"{usuario['id']}. {usuario['nome']}")
 
+    # Solicita o ID do usuário que deseja selecionar.
     escolha = input("\nDigite o ID do usuário: ").strip()
 
+    # Verifica se a entrada contém apenas números.
     if not escolha.isdigit():
         print("ID inválido.")
         return
 
+    # Percorre os usuários para localizar aquele que possui o ID informado.
     for usuario in inscricoes:
         if usuario["id"] == int(escolha):
+
+            # Define o usuário encontrado como usuário atual.
             usuario_atual = usuario
+
             print(f"\nUsuário {usuario['nome']} selecionado!")
             return
 
+    # Informa que nenhum usuário corresponde ao ID informado.
     print("Usuário não encontrado.")
-
 # ==========================================
 # 4. CONSULTA DE PARTICIPAÇÃO
 # ==========================================
@@ -382,24 +393,16 @@ def cadastro():
 
 def consultar_eventos(mod, regiao):
 
-    # Verifica se existe um usuário cadastrado.
-    if usuario_atual is None:
-        print("Você precisa realizar seu cadastro antes de consultar os eventos.")
-        return
-
-    # Verifica se a modalidade escolhida corresponde ao cadastro.
-    if usuario_atual["modalidade"] != mod:
-        print(f"Você está cadastrado na modalidade {usuario_atual['modalidade'].title()}.")
-        return
-
-    # Exibe os eventos disponíveis na região e modalidade.
+    # Exibe os eventos disponíveis na região e modalidade escolhidas.
     if mod in eventos[regiao]:
+
         for i, ev in enumerate(eventos[regiao][mod], start=1):
             print(f"\n{i}. {ev['nome']}")
             print(f"Nível: {ev['nivel']}")
             print(f"Vagas: {ev['vagas']}")
             print(f"Data: {ev['data'].strftime('%d/%m/%Y')}")
 
+            # Verifica a situação atual do evento.
             if ev["cancelado"]:
                 print("Situação: CANCELADO")
 
@@ -417,14 +420,28 @@ def consultar_eventos(mod, regiao):
         return
 
     # Pergunta se o usuário deseja realizar uma inscrição.
-    part = input("\nGostaria de se inscrever em algum evento (sim ou não)?\n").lower().strip()
+    part = input(
+        "\nGostaria de se inscrever em algum evento (sim ou não)?\n"
+    ).lower().strip()
 
     if part == "sim":
+
+        # Solicita a identificação do participante somente no momento da inscrição.
         selecionar_usuario()
 
+        # Verifica se um usuário foi selecionado corretamente.
         if usuario_atual is None:
             return
 
+        # Verifica se a modalidade escolhida corresponde ao cadastro do participante.
+        if usuario_atual["modalidade"] != mod:
+            print(
+                f"Você está cadastrado na modalidade "
+                f"{usuario_atual['modalidade'].title()}."
+            )
+            return
+
+        # Encaminha o participante para realizar a inscrição no evento.
         inscricao_evento(regiao, mod, usuario_atual)
 
     elif part == "não" or part == "nao":
@@ -433,7 +450,6 @@ def consultar_eventos(mod, regiao):
     else:
         print("Resposta inválida.")
         return
-
 
 # ==========================================
 # 10. SELEÇÃO DE MODALIDADE
