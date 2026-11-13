@@ -14,13 +14,13 @@ eventos = {
             {"nome": "Campeonato Municipal de Futebol", "nivel":
                 "Iniciante", "vagas": 30, "data": date(2026, 10, 20), "cancelado": True},
             {"nome": "Copa São Paulo de Futebol Amador", "nivel":
-                "Intermediário", "vagas": 25, "data": date(2026, 12, 15), "cancelado": False},
+                "Intermediário", "vagas": 0, "data": date(2026, 12, 15), "cancelado": False},
             {"nome": "Torneio Metropolitano de Futebol", "nivel":
                 "Avançado", "vagas": 20, "data": date(2027, 2, 10), "cancelado": False}
         ],
         "basquete": [
             {"nome": "Campeonato Municipal de Basquete", "nivel":
-                "Iniciante", "vagas": 25, "data": date(2026, 11, 25), "cancelado": False},
+                "Iniciante", "vagas": 1, "data": date(2026, 11, 25), "cancelado": False},
             {"nome": "Copa Paulista de Basquete", "nivel":
                 "Intermediário", "vagas": 20, "data": date(2026, 9, 15), "cancelado": False},
             {"nome": "Torneio Metropolitano de Basquete", "nivel":
@@ -28,7 +28,7 @@ eventos = {
         ],
         "tenis": [
             {"nome": "Torneio Municipal de Tênis", "nivel":
-                "Iniciante", "vagas": 20, "data": date(2027, 1, 12), "cancelado": True},
+                "Iniciante", "vagas": 0, "data": date(2027, 1, 12), "cancelado": True},
             {"nome": "Copa Paulista de Tênis", "nivel":
                 "Intermediário", "vagas": 15, "data": date(2026, 10, 5), "cancelado": False},
             {"nome": "Circuito Metropolitano de Tênis",
@@ -38,7 +38,7 @@ eventos = {
             {"nome": "Campeonato Municipal de Vôlei",
              "nivel": "Iniciante", "vagas": 30, "data": date(2026, 12, 5), "cancelado": True},
             {"nome": "Copa Paulista de Vôlei", "nivel":
-                "Intermediário", "vagas": 25, "data": date(2026, 8, 20), "cancelado": True},
+                "Intermediário", "vagas": 3, "data": date(2026, 8, 20), "cancelado": True},
             {"nome": "Torneio Metropolitano de Vôlei", "nivel":
                 "Avançado", "vagas": 20, "data": date(2027, 5, 10), "cancelado": False}
         ]
@@ -139,16 +139,45 @@ usuario_atual = None
 
 
 # ==========================================
-# 3. CONSULTA DE PARTICIPAÇÃO
+# 3. SELECIONAR USUÁRIO
 # ==========================================
+def selecionar_usuario():
+    global usuario_atual
 
+    print("\n--- SELECIONAR USUÁRIO ---\n")
+
+    if not inscricoes:
+        print("Nenhum usuário cadastrado.")
+        return
+
+    for usuario in inscricoes:
+        print(f"{usuario['id']}. {usuario['nome']}")
+
+    escolha = input("\nDigite o ID do usuário: ").strip()
+
+    if not escolha.isdigit():
+        print("ID inválido.")
+        return
+
+    for usuario in inscricoes:
+        if usuario["id"] == int(escolha):
+            usuario_atual = usuario
+            print(f"\nUsuário {usuario['nome']} selecionado!")
+            return
+
+    print("Usuário não encontrado.")
+
+# ==========================================
+# 4. CONSULTA DE PARTICIPAÇÃO
+# ==========================================
 
 def meus_eventos():
     print("\n--- PARTICIPAÇÃO DE EVENTOS ---\n")
 
+    selecionar_usuario()
     # Verifica se existe um usuário ativo.
     if usuario_atual is None:
-        print("Você não possui usuário cadastrado")
+
         return
 
     # Verifica se o usuário possui inscrições.
@@ -182,7 +211,7 @@ def meus_eventos():
 
 
 # ==========================================
-# 4. INSCRIÇÃO EM EVENTOS
+# 5. INSCRIÇÃO EM EVENTOS
 # ==========================================
 
 
@@ -238,7 +267,7 @@ def inscricao_evento(regiao, mod, usuario_atual):
 
 
 # ==========================================
-# 5. CONSULTA DE USUÁRIOS CADASTRADOS
+# 6. CONSULTA DE USUÁRIOS CADASTRADOS
 # ==========================================
 
 def consultar_inscricoes(inscricoes):
@@ -251,6 +280,7 @@ def consultar_inscricoes(inscricoes):
 
     # Percorre e exibe os dados de cada usuário.
     for usuario in inscricoes:
+        print(f"ID: {usuario['id']}")
         print(f"Nome: {usuario['nome']}")
         print(f"Email: {usuario['email']}")
         print(f"Telefone: {usuario['telefone']}")
@@ -260,7 +290,7 @@ def consultar_inscricoes(inscricoes):
 
 
 # ==========================================
-# 6. VERIFICAÇÃO DE E-MAIL
+# 7. VERIFICAÇÃO DE E-MAIL
 # ==========================================
 
 def verificar_email(email):
@@ -275,7 +305,7 @@ def verificar_email(email):
 
 
 # ==========================================
-# 7. CADASTRO DE USUÁRIOS
+# 8. CADASTRO DE USUÁRIOS
 # ==========================================
 
 def cadastro():
@@ -326,7 +356,10 @@ def cadastro():
         return
 
     # Cria o dicionário com os dados do novo usuário.
+
+    id_usuario = len(inscricoes) + 1
     usuario = {
+        "id": id_usuario,
         "nome": nome.title(),
         "email": email.strip(),
         "telefone": telefone.strip(),
@@ -343,7 +376,7 @@ def cadastro():
 
 
 # ==========================================
-# 8. CONSULTA DE EVENTOS
+# 9. CONSULTA DE EVENTOS
 # ==========================================
 
 
@@ -387,6 +420,11 @@ def consultar_eventos(mod, regiao):
     part = input("\nGostaria de se inscrever em algum evento (sim ou não)?\n").lower().strip()
 
     if part == "sim":
+        selecionar_usuario()
+
+        if usuario_atual is None:
+            return
+
         inscricao_evento(regiao, mod, usuario_atual)
 
     elif part == "não" or part == "nao":
@@ -398,7 +436,7 @@ def consultar_eventos(mod, regiao):
 
 
 # ==========================================
-# 9. SELEÇÃO DE MODALIDADE
+# 10. SELEÇÃO DE MODALIDADE
 # ==========================================
 
 def modalidade(regiao):
@@ -424,7 +462,7 @@ def modalidade(regiao):
 
 
 # ==========================================
-# 10. SELEÇÃO DE REGIÃO
+# 11. SELEÇÃO DE REGIÃO
 # ==========================================
 
 def regioes():
@@ -448,7 +486,7 @@ def regioes():
 
 
 # ==========================================
-# 11. MENU PRINCIPAL
+# 12. MENU PRINCIPAL
 # ==========================================
 
 def main():
@@ -459,7 +497,7 @@ def main():
         print("1. Cadastrar participante")
         print("2. Explorar eventos")
         print("3. Minhas inscrições")
-        print("4. Consultar participantes")
+        print("4. Consultar Usuário")
         print("0. Sair")
 
         opcao = input("\nEscolha uma opção: ").strip()
@@ -487,7 +525,7 @@ def main():
 
 
 # ==========================================
-# 12. EXECUÇÃO DO PROGRAMA
+# 13. EXECUÇÃO DO PROGRAMA
 # ==========================================
 
 main()
