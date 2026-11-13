@@ -6,71 +6,101 @@
 # Organiza os eventos por região e modalidade.
 # Cada evento possui nome, nível exigido e vagas disponíveis.
 
+from datetime import date
+
 eventos = {
     "sao paulo": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa São Paulo de Futebol Amador", "nivel": "Intermediário", "vagas": 25},
-            {"nome": "Torneio Metropolitano de Futebol", "nivel": "Avançado", "vagas": 20}
+            {"nome": "Campeonato Municipal de Futebol", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 10, 20), "cancelado": True},
+            {"nome": "Copa São Paulo de Futebol Amador", "nivel":
+                "Intermediário", "vagas": 25, "data": date(2026, 12, 15), "cancelado": False},
+            {"nome": "Torneio Metropolitano de Futebol", "nivel":
+                "Avançado", "vagas": 20, "data": date(2027, 2, 10), "cancelado": False}
         ],
         "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel": "Iniciante", "vagas": 25},
-            {"nome": "Copa Paulista de Basquete", "nivel": "Intermediário", "vagas": 20},
-            {"nome": "Torneio Metropolitano de Basquete", "nivel": "Avançado", "vagas": 15}
+            {"nome": "Campeonato Municipal de Basquete", "nivel":
+                "Iniciante", "vagas": 25, "data": date(2026, 11, 25), "cancelado": False},
+            {"nome": "Copa Paulista de Basquete", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2026, 9, 15), "cancelado": False},
+            {"nome": "Torneio Metropolitano de Basquete", "nivel":
+                "Avançado", "vagas": 15, "data": date(2027, 3, 20), "cancelado": True}
         ],
         "tenis": [
-            {"nome": "Torneio Municipal de Tênis", "nivel": "Iniciante", "vagas": 20},
-            {"nome": "Copa Paulista de Tênis", "nivel": "Intermediário", "vagas": 15},
-            {"nome": "Circuito Metropolitano de Tênis", "nivel": "Avançado", "vagas": 10}
+            {"nome": "Torneio Municipal de Tênis", "nivel":
+                "Iniciante", "vagas": 20, "data": date(2027, 1, 12), "cancelado": True},
+            {"nome": "Copa Paulista de Tênis", "nivel":
+                "Intermediário", "vagas": 15, "data": date(2026, 10, 5), "cancelado": False},
+            {"nome": "Circuito Metropolitano de Tênis",
+             "nivel": "Avançado", "vagas": 10, "data": date(2027, 4, 18), "cancelado": True}
         ],
         "volei": [
-            {"nome": "Campeonato Municipal de Vôlei", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa Paulista de Vôlei", "nivel": "Intermediário", "vagas": 25},
-            {"nome": "Torneio Metropolitano de Vôlei", "nivel": "Avançado", "vagas": 20}
+            {"nome": "Campeonato Municipal de Vôlei",
+             "nivel": "Iniciante", "vagas": 30, "data": date(2026, 12, 5), "cancelado": True},
+            {"nome": "Copa Paulista de Vôlei", "nivel":
+                "Intermediário", "vagas": 25, "data": date(2026, 8, 20), "cancelado": True},
+            {"nome": "Torneio Metropolitano de Vôlei", "nivel":
+                "Avançado", "vagas": 20, "data": date(2027, 5, 10), "cancelado": False}
         ]
     },
 
     "osasco": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa Osasco de Futebol", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Futebol", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 11, 30), "cancelado": True},
+            {"nome": "Copa Osasco de Futebol", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2026, 9, 10), "cancelado": True}
         ],
         "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel": "Iniciante", "vagas": 25},
-            {"nome": "Copa Osasco de Basquete", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Basquete", "nivel":
+                "Iniciante", "vagas": 25, "data": date(2027, 2, 15), "cancelado": True},
+            {"nome": "Copa Osasco de Basquete", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2026, 12, 20), "cancelado": True}
         ]
     },
 
     "guarulhos": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa Guarulhos de Futebol", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Futebol", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 7, 15), "cancelado": False},
+            {"nome": "Copa Guarulhos de Futebol", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2027, 1, 25), "cancelado": True}
         ],
         "volei": [
-            {"nome": "Campeonato Municipal de Vôlei", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa Guarulhos de Vôlei", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Vôlei", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 12, 10), "cancelado": True},
+            {"nome": "Copa Guarulhos de Vôlei", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2027, 3, 5), "cancelado": False}
         ]
     },
 
     "campinas": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa Campinas de Futebol", "nivel": "Intermediário", "vagas": 25}
+            {"nome": "Campeonato Municipal de Futebol", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 10, 12), "cancelado": True},
+            {"nome": "Copa Campinas de Futebol", "nivel":
+                "Intermediário", "vagas": 25, "data": date(2027, 2, 28), "cancelado": False}
         ],
         "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel": "Iniciante", "vagas": 25},
-            {"nome": "Copa Campinas de Basquete", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Basquete", "nivel":
+                "Iniciante", "vagas": 25, "data": date(2026, 12, 18), "cancelado": False},
+            {"nome": "Copa Campinas de Basquete", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2027, 4, 8), "cancelado": True}
         ]
     },
 
     "são bernardo do campo": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel": "Iniciante", "vagas": 30},
-            {"nome": "Copa São Bernardo de Futebol", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Futebol", "nivel":
+                "Iniciante", "vagas": 30, "data": date(2026, 11, 28), "cancelado": True},
+            {"nome": "Copa São Bernardo de Futebol", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2027, 1, 15), "cancelado": False}
         ],
         "volei": [
-            {"nome": "Campeonato Municipal de Vôlei", "nivel": "Iniciante", "vagas": 25},
-            {"nome": "Copa São Bernardo de Vôlei", "nivel": "Intermediário", "vagas": 20}
+            {"nome": "Campeonato Municipal de Vôlei", "nivel":
+                "Iniciante", "vagas": 25, "data": date(2026, 8, 30), "cancelado": True},
+            {"nome": "Copa São Bernardo de Vôlei", "nivel":
+                "Intermediário", "vagas": 20, "data": date(2027, 3, 12), "cancelado": True}
         ]
     }
 }
@@ -112,6 +142,7 @@ usuario_atual = None
 # 3. CONSULTA DE PARTICIPAÇÃO
 # ==========================================
 
+
 def meus_eventos():
     print("\n--- PARTICIPAÇÃO DE EVENTOS ---\n")
 
@@ -129,13 +160,31 @@ def meus_eventos():
     for evento in usuario_atual["eventos"]:
         print(f"Evento: {evento['nome']}")
         print(f"Nível: {evento['nivel']}")
+        print(f"Data: {evento['data'].strftime('%d/%m/%Y')}")
         print(f"Vagas restantes: {evento['vagas']}")
+
+        # Verifica se o evento foi cancelado.
+        if evento["cancelado"]:
+            print("Situação: CANCELADO")
+
+        # Verifica se o evento já aconteceu.
+        elif evento["data"] < date.today():
+            print("Situação: ENCERRADO")
+
+        # Verifica se o evento acontece hoje.
+        elif evento["data"] == date.today():
+            print("Situação: ACONTECE HOJE")
+
+        else:
+            print("Situação: CONFIRMADO")
+
         print("-------------------")
 
 
 # ==========================================
 # 4. INSCRIÇÃO EM EVENTOS
 # ==========================================
+
 
 def inscricao_evento(regiao, mod, usuario_atual):
 
@@ -156,6 +205,16 @@ def inscricao_evento(regiao, mod, usuario_atual):
     # Recupera o evento selecionado.
     evento = lista_eventos[int(escolha) - 1]
 
+    # Verifica se o evento foi cancelado.
+    if evento["cancelado"]:
+        print("Inscrição indisponível: este evento foi cancelado.")
+        return
+
+    # Verifica se a data do evento já passou.
+    if evento["data"] < date.today():
+        print("Inscrição indisponível: este evento já aconteceu.")
+        return
+
     # Compara o nível do usuário com o nível exigido pelo evento.
     if classificacao[usuario_atual["nivel"]] < classificacao[evento["nivel"]]:
         print("Seu nível é insuficiente para participar desse evento.")
@@ -167,7 +226,7 @@ def inscricao_evento(regiao, mod, usuario_atual):
         return
 
     # Impede que o usuário se inscreva duas vezes no mesmo evento.
-    if evento["nome"] in [ev["nome"] for ev in usuario_atual["eventos"]]:
+    if evento in usuario_atual["eventos"]:
         print("Você já está participando desse evento.")
         return
 
@@ -222,7 +281,7 @@ def verificar_email(email):
 def cadastro():
     global usuario_atual
 
-    print("Esse é o menu de inscrição para jogar nas equipes da PonteEsportes\n")
+    print("Esse é o menu de inscrição para jogar nas equipes da EloEsportes\n")
     print("Digite seus dados cadastrais: ")
 
     # Recebe os dados pessoais.
@@ -287,6 +346,7 @@ def cadastro():
 # 8. CONSULTA DE EVENTOS
 # ==========================================
 
+
 def consultar_eventos(mod, regiao):
 
     # Verifica se existe um usuário cadastrado.
@@ -305,12 +365,26 @@ def consultar_eventos(mod, regiao):
             print(f"\n{i}. {ev['nome']}")
             print(f"Nível: {ev['nivel']}")
             print(f"Vagas: {ev['vagas']}")
+            print(f"Data: {ev['data'].strftime('%d/%m/%Y')}")
+
+            if ev["cancelado"]:
+                print("Situação: CANCELADO")
+
+            elif ev["data"] < date.today():
+                print("Situação: ENCERRADO")
+
+            elif ev["data"] == date.today():
+                print("Situação: ACONTECE HOJE")
+
+            else:
+                print("Situação: ATIVO")
+
     else:
         print("Modalidade inválida")
         return
 
     # Pergunta se o usuário deseja realizar uma inscrição.
-    part = input("\nGostaria de se inscrever em algum evento(sim ou não)?\n").lower().strip()
+    part = input("\nGostaria de se inscrever em algum evento (sim ou não)?\n").lower().strip()
 
     if part == "sim":
         inscricao_evento(regiao, mod, usuario_atual)
@@ -319,7 +393,6 @@ def consultar_eventos(mod, regiao):
         return
 
     else:
-        # Trata respostas diferentes das opções esperadas.
         print("Resposta inválida.")
         return
 
@@ -382,11 +455,11 @@ def main():
 
     # Mantém o sistema em execução até o usuário escolher sair.
     while True:
-        print("\n--- MENU DE BUSCA ---")
-        print("1. Cadastro")
-        print("2. Eventos")
-        print("3. Meus Eventos")
-        print("4. Consultar inscrições")
+        print("\n========== ELOESPORTES ==========")
+        print("1. Cadastrar participante")
+        print("2. Explorar eventos")
+        print("3. Minhas inscrições")
+        print("4. Consultar participantes")
         print("0. Sair")
 
         opcao = input("\nEscolha uma opção: ").strip()
