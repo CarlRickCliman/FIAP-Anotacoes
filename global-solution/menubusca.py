@@ -324,9 +324,22 @@ def verificar_email(email):
     # Retorna True caso o e-mail esteja disponível.
     return True
 
+# ==========================================
+# 8. VERIFICAÇÃO DE TELEFONE
+# ==========================================
+
+def verificar_telefone(telefone):
+
+    # Percorre os usuários para identificar telefones duplicados.
+    for usuario in inscricoes:
+        if usuario["telefone"].strip() == telefone.strip():
+            return False
+
+    # Retorna True caso o telefone esteja disponível.
+    return True
 
 # ==========================================
-# 8. CADASTRO DE USUÁRIOS
+# 9. CADASTRO DE USUÁRIOS
 # ==========================================
 
 def cadastro():
@@ -338,13 +351,17 @@ def cadastro():
     # Recebe os dados pessoais.
     nome = input("\nNome: ")
     email = input("Email: ")
+    telefone = input("Telefone: ").strip()
 
-    # Impede o cadastro de e-mails duplicados.
-    if not verificar_email(email):
-        print("Este email já está cadastrado.")
+    # Verifica se o telefone já está cadastrado.
+    if not verificar_telefone(telefone):
+        print("Este telefone já está cadastrado.")
         return
 
-    telefone = input("Telefone: ").strip()
+    # Verifica se o e-mail já está cadastrado.
+    if not verificar_email(email):
+        print("Este e-mail já está cadastrado.")
+        return
 
     # Exibe as modalidades disponíveis.
     print("\nQual sua modalidade de preferência?\n")
@@ -397,7 +414,7 @@ def cadastro():
 
 
 # ==========================================
-# 9. CONSULTA DE EVENTOS
+# 10. CONSULTA DE EVENTOS
 # ==========================================
 
 
@@ -462,7 +479,7 @@ def consultar_eventos(mod, regiao):
         return
 
 # ==========================================
-# 10. SELEÇÃO DE MODALIDADE
+# 11. SELEÇÃO DE MODALIDADE
 # ==========================================
 
 def modalidade(regiao):
@@ -488,7 +505,7 @@ def modalidade(regiao):
 
 
 # ==========================================
-# 11. SELEÇÃO DE REGIÃO
+# 12. SELEÇÃO DE REGIÃO
 # ==========================================
 
 def regioes():
@@ -512,7 +529,7 @@ def regioes():
 
 
 # ==========================================
-# 12. MENU PRINCIPAL
+# 13. MENU PRINCIPAL
 # ==========================================
 
 def main():
@@ -551,7 +568,7 @@ def main():
 
 
 # ==========================================
-# 13. EXECUÇÃO DO PROGRAMA
+# 14. EXECUÇÃO DO PROGRAMA
 # ==========================================
 
 main()
