@@ -10,97 +10,107 @@ from datetime import date
 
 eventos = {
     "sao paulo": {
+        "caminhada": [
+            {
+                "nome": "Circuito de Caminhada do Ibirapuera",
+                "nivel": "Iniciante",
+                "vagas": 2,
+                "data": date(2026, 11, 28),
+                "cancelado": False
+            }
+        ],
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 10, 20), "cancelado": True},
-            {"nome": "Copa São Paulo de Futebol Amador", "nivel":
-                "Intermediário", "vagas": 0, "data": date(2026, 12, 15), "cancelado": False},
-            {"nome": "Torneio Metropolitano de Futebol", "nivel":
-                "Avançado", "vagas": 20, "data": date(2027, 2, 10), "cancelado": False}
-        ],
-        "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel":
-                "Iniciante", "vagas": 1, "data": date(2026, 11, 25), "cancelado": False},
-            {"nome": "Copa Paulista de Basquete", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2026, 9, 15), "cancelado": False},
-            {"nome": "Torneio Metropolitano de Basquete", "nivel":
-                "Avançado", "vagas": 15, "data": date(2027, 3, 20), "cancelado": True}
-        ],
-        "tenis": [
-            {"nome": "Torneio Municipal de Tênis", "nivel":
-                "Iniciante", "vagas": 0, "data": date(2027, 1, 12), "cancelado": True},
-            {"nome": "Copa Paulista de Tênis", "nivel":
-                "Intermediário", "vagas": 15, "data": date(2026, 10, 5), "cancelado": False},
-            {"nome": "Circuito Metropolitano de Tênis",
-             "nivel": "Avançado", "vagas": 10, "data": date(2027, 4, 18), "cancelado": True}
-        ],
-        "volei": [
-            {"nome": "Campeonato Municipal de Vôlei",
-             "nivel": "Iniciante", "vagas": 30, "data": date(2026, 12, 5), "cancelado": True},
-            {"nome": "Copa Paulista de Vôlei", "nivel":
-                "Intermediário", "vagas": 3, "data": date(2026, 8, 20), "cancelado": True},
-            {"nome": "Torneio Metropolitano de Vôlei", "nivel":
-                "Avançado", "vagas": 20, "data": date(2027, 5, 10), "cancelado": False}
+            {
+                "nome": "Copa Metropolitana de Futebol",
+                "nivel": "Intermediário",
+                "vagas": 18,
+                "data": date(2027, 1, 30),
+                "cancelado": False
+            }
         ]
     },
 
     "osasco": {
-        "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 11, 30), "cancelado": True},
-            {"nome": "Copa Osasco de Futebol", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2026, 9, 10), "cancelado": True}
+        "bicicleta": [
+            {
+                "nome": "Pedal Urbano de Osasco",
+                "nivel": "Iniciante",
+                "vagas": 1,
+                "data": date(2026, 12, 6),
+                "cancelado": True
+            }
         ],
-        "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel":
-                "Iniciante", "vagas": 25, "data": date(2027, 2, 15), "cancelado": True},
-            {"nome": "Copa Osasco de Basquete", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2026, 12, 20), "cancelado": True}
+        "futebol": [
+            {
+                "nome": "Torneio Regional de Futebol de Osasco",
+                "nivel": "Avançado",
+                "vagas": 24,
+                "data": date(2027, 2, 14),
+                "cancelado": False
+            }
         ]
     },
 
     "guarulhos": {
-        "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 7, 15), "cancelado": False},
-            {"nome": "Copa Guarulhos de Futebol", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2027, 1, 25), "cancelado": True}
+        "caminhada": [
+            {
+                "nome": "Caminhada Comunitária de Guarulhos",
+                "nivel": "Iniciante",
+                "vagas": 3,
+                "data": date(2026, 12, 13),
+                "cancelado": False
+            }
         ],
-        "volei": [
-            {"nome": "Campeonato Municipal de Vôlei", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 12, 10), "cancelado": True},
-            {"nome": "Copa Guarulhos de Vôlei", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2027, 3, 5), "cancelado": False}
+        "bicicleta": [
+            {
+                "nome": "Desafio Ciclístico de Guarulhos",
+                "nivel": "Intermediário",
+                "vagas": 30,
+                "data": date(2027, 3, 20),
+                "cancelado": False
+            }
         ]
     },
 
     "campinas": {
         "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 10, 12), "cancelado": True},
-            {"nome": "Copa Campinas de Futebol", "nivel":
-                "Intermediário", "vagas": 25, "data": date(2027, 2, 28), "cancelado": False}
+            {
+                "nome": "Campeonato Municipal de Futebol de Campinas",
+                "nivel": "Iniciante",
+                "vagas": 0,
+                "data": date(2026, 10, 25),
+                "cancelado": False
+            }
         ],
-        "basquete": [
-            {"nome": "Campeonato Municipal de Basquete", "nivel":
-                "Iniciante", "vagas": 25, "data": date(2026, 12, 18), "cancelado": False},
-            {"nome": "Copa Campinas de Basquete", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2027, 4, 8), "cancelado": True}
+        "caminhada": [
+            {
+                "nome": "Circuito de Caminhada de Campinas",
+                "nivel": "Intermediário",
+                "vagas": 20,
+                "data": date(2027, 2, 7),
+                "cancelado": False
+            }
         ]
     },
 
     "são bernardo do campo": {
-        "futebol": [
-            {"nome": "Campeonato Municipal de Futebol", "nivel":
-                "Iniciante", "vagas": 30, "data": date(2026, 11, 28), "cancelado": True},
-            {"nome": "Copa São Bernardo de Futebol", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2027, 1, 15), "cancelado": False}
+        "bicicleta": [
+            {
+                "nome": "Pedal de Integração de São Bernardo",
+                "nivel": "Iniciante",
+                "vagas": 2,
+                "data": date(2026, 11, 22),
+                "cancelado": True
+            }
         ],
-        "volei": [
-            {"nome": "Campeonato Municipal de Vôlei", "nivel":
-                "Iniciante", "vagas": 25, "data": date(2026, 8, 30), "cancelado": True},
-            {"nome": "Copa São Bernardo de Vôlei", "nivel":
-                "Intermediário", "vagas": 20, "data": date(2027, 3, 12), "cancelado": True}
+        "futebol": [
+            {
+                "nome": "Copa de Futebol de São Bernardo",
+                "nivel": "Avançado",
+                "vagas": 30,
+                "data": date(2027, 4, 11),
+                "cancelado": False
+            }
         ]
     }
 }
@@ -111,11 +121,11 @@ eventos = {
 # ==========================================
 
 # Modalidades e níveis disponíveis para cadastro.
+
 modalidades = [
-    "futebol",
-    "basquete",
-    "volei",
-    "tenis"
+    "caminhada",
+    "bicicleta",
+    "futebol"
 ]
 
 niveis = [
